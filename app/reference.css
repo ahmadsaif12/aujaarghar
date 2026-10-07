@@ -1,0 +1,101 @@
+/* Homepage proportions aligned with the supplied HardwarePasal reference,
+   while retaining AujarGhar content and brand identity. */
+.header-icon {
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+}
+
+@media (min-width: 761px) {
+  .site-header {
+    height: 61px;
+    position: relative;
+    z-index: 30;
+    padding-inline: max(34px, calc((100vw - 1220px) / 2));
+  }
+
+  .header-actions { align-items: center; gap: 28px; }
+  .header-action { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; font-size: 14px; }
+  .account-caret { display: inline-block; margin-left: 2px; color: #1e2528; font-size: 14px; line-height: 1; transform: translateY(-1px); }
+
+  .main-nav {
+    height: 60px;
+    position: relative;
+    z-index: 1;
+    gap: 0;
+    padding-inline: max(34px, calc((100vw - 1220px) / 2));
+    box-shadow: 0 3px 10px rgb(31 31 31 / 3%);
+  }
+
+  .main-nav .category-nav {
+    height: 60px;
+    margin-left: 0;
+    width: 175px;
+    text-align: left;
+  }
+
+  .main-nav .header-search { max-width: none; margin-left: 16px; }
+  .sell-link {
+    display: flex !important;
+    align-items: center;
+    gap: 7px;
+    margin-left: 52px;
+    font-size: 14px;
+  }
+
+  .sell-link:first-letter { color: var(--orange); }
+  .hotline { margin-left: auto; display: flex; align-items: center; gap: 5px; }
+  .hotline span { margin: 0; }
+}
+
+@media (min-width: 761px) {
+  .header-actions { margin-left: auto; }
+}
+
+.benefits { grid-template-columns: repeat(5, 1fr); }
+.benefits > button {
+  min-width: 0;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.benefits > button:hover { border-color: #f8b566; background: #fffaf3; }
+.benefits > button > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 39px;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #fff0de;
+  color: var(--orange);
+  font-size: 18px;
+}
+
+.benefits button:nth-child(2) > span { background: #fff0d6; }
+.benefits button:nth-child(3) > span { background: #fff9bd; }
+.benefits button:nth-child(4) > span { background: #ddf2f8; }
+.benefits button:nth-child(5) > span { background: #ddf4df; }
+.benefits p { min-width: 0; }
+.benefits b { font-size: 13px; }
+
+@media (max-width: 760px) {
+  .main-nav .header-search { flex: 1; min-width: 160px; }
+  .main-nav .sell-link { display: none; }
+  .benefits { grid-template-columns: 1fr 1fr; }
+  .benefits > button { min-height: 65px; }
+  .benefits > button > span { flex-basis: 33px; width: 33px; height: 33px; font-size: 15px; }
+}
