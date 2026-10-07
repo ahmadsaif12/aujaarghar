@@ -24,6 +24,7 @@ export async function POST(req: Request) {
     });
   });
   if (payment === "stripe") {
+    if (!stripe) return Response.json({ error: "Online card payments are not configured yet. Please choose cash on delivery." }, { status: 503 });
     const base = process.env.APP_URL ?? "http://localhost:3000";
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

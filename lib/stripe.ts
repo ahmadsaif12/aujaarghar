@@ -1,7 +1,9 @@
 import Stripe from "stripe";
 
-// Stripe client using your secret test key from the .env file.
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "");
+// Stripe is optional: cash on delivery works with an empty local .env.
+export const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY)
+  : null;
 
 // Converts a price in Nepali rupees to US cents using the NPR_PER_USD rate.
 export function nprToUsdCents(npr: number) {

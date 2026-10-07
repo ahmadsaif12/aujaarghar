@@ -3,6 +3,8 @@ import { stripe } from "@/lib/stripe";
 
 // Receives Stripe's payment confirmation and marks the order as paid after checking the signature.
 export async function POST(req: Request) {
+  if (!stripe || !process.env.STRIPE_WEBHOOK_SECRET)
+    return new Response("Stripe webhook is not configured", { status: 503 });
   const body = await req.text();
   const sig = req.headers.get("stripe-signature") ?? "";
   let event;
